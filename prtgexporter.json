@@ -1,0 +1,11 @@
+{
+	"PRTG": {
+		"Server": "http://localhost",
+		"Username": "prtgadmin",
+		"Password": "prtgadmin"
+	},
+
+	"Exporter": {
+		"Port": "1234"
+	}
+}
