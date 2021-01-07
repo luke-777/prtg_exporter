@@ -5,9 +5,9 @@ prtg-exporter-core uses [PrtgAPI](https://github.com/lordmilko/PrtgAPI) to recei
 [prometheus-net](https://github.com/prometheus-net/prometheus-net) to export metrics to Prometheus.
 
 
-![Grafana](https://raw.githubusercontent.com/luke-777/prtg-exporter-core/main/images/grafana.PNG)
+![Grafana](https://raw.githubusercontent.com/luke-777/prtg_exporter/main/images/grafana.PNG)
 
-![Prometheus](https://raw.githubusercontent.com/luke-777/prtg-exporter-core/main/images/prometheus.PNG)
+![Prometheus](https://raw.githubusercontent.com/luke-777/prtg_exporter/main/images/prometheus.PNG)
 
 
 ## Build
