@@ -9,5 +9,7 @@ namespace prtg_exporter_core
         public const string Key = "Exporter";
 
         public int Port { get; set; }
+
+        public int UpdateInterval { get; set; }
     }
 }

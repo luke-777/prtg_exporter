@@ -60,8 +60,8 @@ namespace prtg_exporter_core
                 await exporter.RefreshSensorValuesAsync();
 
 
-                // sleep 10 sec.
-                Thread.Sleep(TimeSpan.FromSeconds(10));
+                // sleep x sec.
+                Thread.Sleep(TimeSpan.FromSeconds(exporterOptions.UpdateInterval));
 
 
             }
