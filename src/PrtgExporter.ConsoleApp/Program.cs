@@ -1,20 +1,12 @@
 ﻿using Microsoft.Extensions.Configuration;
-using Prometheus;
-using PrtgAPI;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace prtg_exporter_core
+namespace PrtgExporter.ConsoleApp
 {
     class Program
     {
-
-
-
-
         static async Task Main(string[] args)
         {
 
@@ -24,23 +16,18 @@ namespace prtg_exporter_core
             // Create Configuration:
             ConfigurationBuilder configurationBuilder = new ConfigurationBuilder();
             var config = configurationBuilder
-                .AddJsonFile("prtgexporter.json",true)
+                .AddJsonFile("prtgexporter.json", true)
                 .AddEnvironmentVariables().Build();
-
-
 
             // Get Prtg & Exporter Options from Configuration
             PrtgOptions prtgOptions = config.GetSection(PrtgOptions.Key).Get<PrtgOptions>();
             ExporterOptions exporterOptions = config.GetSection(ExporterOptions.Key).Get<ExporterOptions>();
 
-
-
-
-            if(prtgOptions == null || exporterOptions == null)
+            if (prtgOptions == null || exporterOptions == null)
             {
                 Console.WriteLine("No configuration is given!");
                 return;
-            }    
+            }
 
             Console.WriteLine($"Connecting to {prtgOptions.Server} with username {prtgOptions.Username}...");
             Console.WriteLine($"Metrics: http://localhost:{exporterOptions.Port}/metrics");
