@@ -1,12 +1,9 @@
 ﻿using Prometheus;
 using PrtgAPI;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace prtg_exporter_core
+namespace PrtgExporter.ConsoleApp
 {
     public class PrtgExporter
     {
@@ -14,7 +11,6 @@ namespace prtg_exporter_core
         private ExporterOptions _exporterOptions;
         private PrtgClient _prtgClient;
         private MetricServer _MetricServer;
-
 
         // Gauge for MetricServer
         private static readonly Gauge SensorValueGauge = Metrics
@@ -36,16 +32,10 @@ namespace prtg_exporter_core
                 _prtgOptions.Username,
                 _prtgOptions.Password);
 
-
-
             // start the MetricServer:
-            _MetricServer = new MetricServer("localhost",exporterOptions.Port);
+            _MetricServer = new MetricServer("localhost", exporterOptions.Port);
             _MetricServer.Start();
-
-
         }
-
-
 
         /// <summary>
         /// Creates and returns the PRTG-API Client
@@ -55,21 +45,19 @@ namespace prtg_exporter_core
         /// <param name="password"></param>
         /// <param name="authMode"></param>
         /// <returns>Returns the PrtgClient or null if server is down.</returns>
-        private PrtgClient CreatePrtgClient(string server, string user, string password, AuthMode authMode=AuthMode.Password)
+        private PrtgClient CreatePrtgClient(string server, string user, string password, AuthMode authMode = AuthMode.Password)
         {
             try
             {
-                return new PrtgClient(server,user,password,authMode);
+                return new PrtgClient(server, user, password, authMode);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine($"Can't connect to PRTG Server {server}");
                 Console.WriteLine(e.Message);
                 return null;
             }
         }
-
-
 
         /// <summary>
         /// Refreshes the Gauges-List
@@ -96,17 +84,9 @@ namespace prtg_exporter_core
             // refresh the sensors in PrometheusGauges
             foreach (var sensor in sensors)
             {
-
                 // set Gauge with id = sensor.id to LastValue
                 SensorValueGauge.WithLabels(sensor.Id.ToString()).Set(sensor.LastValue ?? 0);
-
-
             }
         }
-
-
-
-
-
     }
 }
