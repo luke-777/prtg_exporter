@@ -26,7 +26,8 @@ Create a configuration file (prtgexporter.json) or use environment variables con
 	},
 
 	"Exporter": {
-		"Port": "1234"
+		"Port": "1234",
+		"RefreshInterval": 120
 	}
 }
 ```

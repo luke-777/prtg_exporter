@@ -4,6 +4,7 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
     <RootNamespace>PrtgExporter.ConsoleApp</RootNamespace>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,11 +15,8 @@
     <PackageReference Include="prometheus-net" Version="8.2.1" />
     <PackageReference Include="PrtgAPI" Version="0.9.19" />
 	
-	<Content Include="prtgexporter.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>  
+    <Content Include="prtgexporter.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
-  
-
-
 </Project>
