@@ -6,6 +6,7 @@
 	},
 
 	"Exporter": {
-		"Port": "1234"
+		"Port": "1234",
+		"RefreshInterval": 120
 	}
 }
